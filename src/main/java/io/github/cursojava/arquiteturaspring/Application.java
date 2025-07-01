@@ -12,15 +12,11 @@ public class Application {
 
 	public static void main(String[] args) {
 		//SpringApplication.run(Application.class, args);
-
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(Application.class);
-
 		// DESLIGA O BANNER DO PROMPT
 		builder.bannerMode(Banner.Mode.OFF);
 		builder.profiles("producao", "homologacao");
-
 		builder.run(args);
-
 		ConfigurableApplicationContext applicationContext = builder.context();
 	}
 
