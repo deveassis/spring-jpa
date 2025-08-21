@@ -5,6 +5,7 @@ import io.github.cursojava.arquiteturaspring.montadora.TipoMotor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Scope;
 
 
 // toda classe de configuracao deve conter o @configuration
@@ -15,6 +16,7 @@ public class MontadoraConfiguration {
     // por isso colocamos o bean,
     // bean é um metodo que retorna um objeto construido
     @Bean(name = "motorAspirado")
+    @Scope("singleton")
     @Primary
     public Motor motorAspirado(){
         var motor = new Motor();
