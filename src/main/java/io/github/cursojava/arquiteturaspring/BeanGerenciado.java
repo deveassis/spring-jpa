@@ -4,6 +4,7 @@ import io.github.cursojava.arquiteturaspring.todos.TodoEntity;
 import io.github.cursojava.arquiteturaspring.todos.TodoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
@@ -17,12 +18,18 @@ import org.springframework.web.context.WebApplicationContext;
 //@Scope("session"); @Scope(WebApplicationContext.SCOPE_SESSION)
 //@Scope("application"); @Scope(WebApplicationContext.SCOPE_APPLICATION)
 
-@Scope(BeanDefinition.SCOPE_SINGLETON)
+
+@Lazy
 @Component
+@Scope(BeanDefinition.SCOPE_SINGLETON)
 public class BeanGerenciado {
 
     @Autowired
     private TodoValidator validator;
+
+
+    @Autowired
+    private AppProperties properties;
 
     @Autowired
     public BeanGerenciado(TodoValidator validator) {
